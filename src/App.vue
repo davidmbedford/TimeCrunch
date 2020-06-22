@@ -1,7 +1,7 @@
 <template>
-  <v-app class="grey">
+  <v-app>
     <Navbar />
-    <v-content>
+    <v-content class="ma-3">
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -19,3 +19,9 @@ export default {
 };
 </script>
 
+<style>
+.theme--light.v-application
+  {
+    background: #BBDEFB;
+  }
+</style>
