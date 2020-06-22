@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home page, mi amigo</h1>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolore optio, saepe distinctio itaque tenetur fugit commodi molestiae nemo quos excepturi, mollitia consectetur repellendus laudantium velit cum voluptatibus natus sed?</p>
+
+    <v-btn class="pink">Click Mio</v-btn>
+    <v-btn depressed>Click Mio</v-btn>
+    <v-btn flat>Click Mio</v-btn>
+
+    <v-btn depresed class="pink white--text">
+      <v-icon left class="hidden-md-and-down">mdi-email</v-icon>
+      email Mio 
+    </v-btn>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+
 }
 </script>
