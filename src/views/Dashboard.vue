@@ -15,12 +15,13 @@
             <div>{{project.person}}</div>
           </v-col>
           <v-col xs="6" sm="4" md="2">
-            <div class="caption grey--text">Due by~</div>
+            <div class="caption grey--text">Due by</div>
             <div>{{project.due}}</div>
           </v-col>
           <v-col cols="6" sm="4" md="2">
-            <div class="caption grey--text">Status</div>
-            <div>{{project.status}}</div>
+            <div class="right">
+              <v-chip small :class="`${project.status}`">{{ project.status }}</v-chip>
+            </div>
           </v-col>
         </v-row>
       </v-card>
@@ -39,23 +40,6 @@
             <v-btn outlined block color="primary">4</v-btn>
           </v-col>
         </v-row>
-
-      <v-row>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolore optio, saepe distinctio itaque tenetur fugit commodi molestiae nemo quos excepturi, mollitia consectetur repellendus laudantium velit cum voluptatibus natus sed?</p>
-
-        <v-container class="my-2">
-          <v-btn class="primary mx-3">Click Mio</v-btn>
-          <v-btn depressed class="success mx-3">Click Mio</v-btn>
-          <v-btn flat class="info mx-3">Click Mio</v-btn>
-          <v-btn depresed class="error white--text mx-3">
-            <v-icon left class="hidden-md-and-down">mdi-email</v-icon>
-            email Mio 
-          </v-btn>
-        </v-container>
-
-        <p>Lorem dolor sit consectetur adipisicing elit. Corrupti dolore optio, saepe distinctio tenetur fugit commodi molestiae nemo quos excepturi, mollitia consectetur laudantium velit cum voluptatibus natus sed!</p>
-    
-      </v-row>
 
     </v-container>
 
@@ -77,3 +61,31 @@ export default {
 
 }
 </script>
+
+<style>
+
+.project.complete {
+  border-left: 4px solid #3cd1c2;
+}
+.project.ongoing {
+  border-left: 4px solid #fd9a19;
+}
+.project.overdue {
+  border-left: 4px solid tomato;
+}
+
+.v-chip.v-chip--no-color.theme--light.complete {
+  background:  #3cd1c2;
+  opacity: 0.8;
+}
+.v-chip.v-chip--no-color.theme--light.ongoing {
+  background:  #fd9a19;
+  opacity: 0.8;
+}
+.v-chip.v-chip--no-color.theme--light.overdue {
+  background:  tomato;
+  opacity: 0.8;
+}
+
+
+</style>
