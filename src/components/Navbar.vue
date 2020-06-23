@@ -49,7 +49,7 @@
           </v-avatar>
           <p class="white--text subheading mt-1">The Net Ninja</p>
         </v-col>
-        <v-col>
+        <v-col class="mb-3 mt-4">
           <Popup />
         </v-col>
       </v-row>
