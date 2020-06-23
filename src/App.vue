@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-.theme--light.v-application
+.v-application.v-application--is-ltr.theme--light
   {
     background: #BBDEFB;
   }
