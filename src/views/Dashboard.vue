@@ -19,7 +19,7 @@
             <div>{{project.due}}</div>
           </v-col>
           <v-col cols="6" sm="4" md="2">
-            <div class="right">
+            <div class="text-right">
               <v-chip small :class="`${project.status}`">{{ project.status }}</v-chip>
             </div>
           </v-col>
@@ -65,7 +65,7 @@ export default {
 <style>
 
 .project.complete {
-  border-left: 4px solid #3cd1c2;
+  border-left: 4px solid #3cd193;
 }
 .project.ongoing {
   border-left: 4px solid #fd9a19;
@@ -75,7 +75,7 @@ export default {
 }
 
 .v-chip.v-chip--no-color.theme--light.complete {
-  background:  #3cd1c2;
+  background:  #3cd193;
   opacity: 0.8;
 }
 .v-chip.v-chip--no-color.theme--light.ongoing {
