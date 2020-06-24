@@ -73,7 +73,7 @@
 
               <v-row>
                 <v-col>
-                  <v-btn text class="success mx-0 mt-3" @click="submit">Add project</v-btn>
+                  <v-btn text class="success mx-0 mt-3" @click="submit" :loading="loading">Add project</v-btn>
                 </v-col>
               </v-row>
             </v-container>
@@ -98,12 +98,16 @@ export default {
       rules: {
         title: v => v.length >= 3 || 'Minimum length is 3 characters.',
         info: v => v.length <=600 || 'Max length is 600 characters.'
-      }
+      },
+      loading: false,
+      dialog: false
     }
   },
   methods: {
     submit() {
       if(this.$refs.form.validate()) {
+        this.loading = true;
+
         let dueDate = new Date(this.due).toUTCString().substring(0,16);
         const project = {
           title: this.title,
@@ -113,7 +117,9 @@ export default {
           status: 'ongoing'
         }
         db.collection('projects').add(project).then(() => {
-          console.log('added to db')
+          this.loading = false;
+          this.dialog = false;
+          this.$emit('projectAdded')
         })
       }
     }
