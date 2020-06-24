@@ -16,15 +16,14 @@
           <h2>Add a new project</h2>
         </v-card-title>
         <v-card-text>
-          <v-form v-model="valid">
+          <v-form v-model="valid" ref="form">
             <v-container>
 
               <v-row>
                 <v-col cols="12">
                   <v-text-field
                     v-model="title"
-                    :rules="nameRules"
-                    :counter="30"
+                    :rules="[rules.title]"
                     label="Title"
                     required
                     prepend-icon="mdi-folder"
@@ -36,6 +35,8 @@
                 <v-col cols="12">
                   <v-text-field
                     v-model="content"
+                    :rules="[rules.info]"
+                    :counter="600"
                     label="Information"
                     required
                     prepend-icon="mdi-circle"
@@ -92,12 +93,18 @@ export default {
     return {
       title: '',
       content: '',
-      due: null
+      due: null,
+      rules: {
+        title: v => v.length >= 3 || 'Minimum length is 3 characters.',
+        info: v => v.length <=600 || 'Max length is 600 characters.'
+      }
     }
   },
   methods: {
     submit() {
-      console.log(this.title, this.content)
+      if(this.$refs.form.validate()) {
+        console.log(this.title, this.content, this.due)
+      }
     }
   },
   computed: {
