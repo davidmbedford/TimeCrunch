@@ -73,7 +73,7 @@
 
               <v-row>
                 <v-col>
-                  <v-btn text class="success mx-0 mt-3" @click="submit">Add project</v-btn>
+                  <v-btn text class="success mx-0 mt-3" @click="submit" :loading="loading">Add project</v-btn>
                 </v-col>
               </v-row>
             </v-container>
@@ -87,6 +87,7 @@
 <script>
 // import format from 'date-fns/format'
 // import parseISO from 'date-fns/parseISO'
+import db from '@/fb'
 
 export default {
   data() {
@@ -97,13 +98,29 @@ export default {
       rules: {
         title: v => v.length >= 3 || 'Minimum length is 3 characters.',
         info: v => v.length <=600 || 'Max length is 600 characters.'
-      }
+      },
+      loading: false,
+      dialog: false
     }
   },
   methods: {
     submit() {
       if(this.$refs.form.validate()) {
-        console.log(this.title, this.content, this.due)
+        this.loading = true;
+
+        let dueDate = new Date(this.due).toUTCString().substring(0,16);
+        const project = {
+          title: this.title,
+          content: this.content,
+          due: dueDate,
+          person: 'Alpha Beta', //add authentication
+          status: 'ongoing'
+        }
+        db.collection('projects').add(project).then(() => {
+          this.loading = false;
+          this.dialog = false;
+          this.$emit('projectAdded')
+        })
       }
     }
   },
