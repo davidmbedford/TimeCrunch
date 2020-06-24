@@ -104,10 +104,11 @@ export default {
   methods: {
     submit() {
       if(this.$refs.form.validate()) {
+        let dueDate = new Date(this.due).toUTCString().substring(0,16);
         const project = {
           title: this.title,
           content: this.content,
-          due: '',
+          due: dueDate,
           person: 'Alpha Beta', //add authentication
           status: 'ongoing'
         }
