@@ -113,7 +113,7 @@ export default {
           title: this.title,
           content: this.content,
           due: dueDate,
-          person: 'Alpha Beta', //add authentication
+          person: 'J. Doe Smith', //add authentication
           status: 'ongoing'
         }
         db.collection('projects').add(project).then(() => {

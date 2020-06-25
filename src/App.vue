@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Navbar />
-    <v-content class="ma-3">
+    <v-content class="ma-5">
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -22,6 +22,10 @@ export default {
 <style>
 .v-application.v-application--is-ltr.theme--light
   {
-    background: #BBDEFB;
+    background: #e1edf7;
   }
+
+h1.pageTitle {
+  font-weight: 900;  
+}
 </style>

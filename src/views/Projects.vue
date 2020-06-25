@@ -1,15 +1,20 @@
 <template>
   <div class="projects">
-    <h1>My Projects</h1>
+    <h1 class="pageTitle">My Projects</h1>
 
     <v-container class="my-5">
       <v-expansion-panels>
         <v-expansion-panel v-for="project in myProjects" :key="project.title">
-          <v-expansion-panel-header>{{ project.title }}</v-expansion-panel-header>
+          <v-expansion-panel-header class="font-weight-bold">
+            <div>
+            {{ project.title }}: 
+            <span :class="`${project.status}`">{{project.status}}</span>
+            </div>
+          </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <v-card>
+            <v-card flat>
               <v-card-text class="px-4 py-0 grey--text">
-                <div class="font-weight-bold">due by {{ project.due }}</div>
+                <div class="font-weight-bold">Due by: {{ project.due }}</div>
                 <div>{{project.content}}</div>
               </v-card-text>
             </v-card>
@@ -33,7 +38,7 @@ export default {
   computed: {
     myProjects(){
       return this.projects.filter(project => {
-        return project.person === 'Alpha Beta'
+        return project.person === 'J. Doe Smith'
       })
     }
   },
@@ -53,3 +58,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.complete {
+  color:#3cd193;
+}
+.ongoing {
+  color: #fd9a19;
+}
+.overdue {
+  color: tomato;
+}
+
+</style>

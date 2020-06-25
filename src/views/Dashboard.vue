@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h1>Dashboard</h1>
+    <h1 class="pageTitle">Dashboard</h1>
   
     <v-container class="my-5">  
 
@@ -32,7 +32,7 @@
         <v-row :class="`pa-3 project ${project.status}`">
           <v-col xs="12" md="6">
             <div class="caption grey--text">Project Title</div>
-            <div>{{project.title}}</div>
+            <div class="font-weight-bold">{{project.title}}</div>
           </v-col>
           <v-col xs="4" sm="3" md="2">
             <div class="caption grey--text">Person</div>
@@ -100,15 +100,15 @@ export default {
 
 .v-chip.v-chip--no-color.theme--light.complete {
   background:  #3cd193;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 .v-chip.v-chip--no-color.theme--light.ongoing {
   background:  #fd9a19;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 .v-chip.v-chip--no-color.theme--light.overdue {
   background:  tomato;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 

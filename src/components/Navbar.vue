@@ -47,13 +47,13 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" color="indigo">
+    <v-navigation-drawer app v-model="drawer" class="blue lighten-3">
       <v-row justify="center">
         <v-col cols="6" class="mt-5">
           <v-avatar size="100">
-            <img src="/avatar-1.png" alt="your photo">
+            <img src="/jdoe.jpg" alt="your photo">
           </v-avatar>
-          <p class="white--text subheading mt-1">The Net Ninja</p>
+          <p class="white--text font-weight-medium subheading mt-1">J. Doe Smith</p>
         </v-col>
         <v-col class="mb-3 mt-4">
           <Popup @projectAdded="snackbar = true"/>
